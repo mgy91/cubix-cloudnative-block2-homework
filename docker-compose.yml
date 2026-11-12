@@ -1,0 +1,12 @@
+services:
+  backapp:
+    image: cubix-backapp:latest
+
+  frontapp:
+    image: cubix-frontapp:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - BACK_URL=http://backapp:8080
+    depends_on:
+      - backapp
